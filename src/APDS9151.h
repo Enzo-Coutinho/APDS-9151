@@ -131,6 +131,17 @@ enum gain {
     __GAIN_18 = 0x04,
 };
 
+enum interrupt {
+    __PS_INT_EN = 0x01,
+    __PS_LOGIC_MODE = 0x02,
+    __LS_INT_EN = 0x04,
+    __LS_VAR_MODE = 0x08,
+    __LS_INT_SEL_IR_CHANNEL = 0x00,
+    __LS_INT_SEL_ALS_CHANNEL = 0x10,
+    __LS_INT_SEL_GEEN_CHANNEL = 0x20,
+    __LS_INT_SEL_RED_CHANNEL = 0x30,
+};
+
 void initalize();
 esp_err_t writeRegister(uint8_t reg, uint8_t data);
 esp_err_t readRegister();

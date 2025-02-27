@@ -20,7 +20,7 @@ i2c_master_bus_config_t i2c_master_config = {
 i2c_device_config_t dev_cfg = {
     .dev_addr_length = I2C_ADDR_BIT_LEN_7,
     .device_address = 0x52,
-    .scl_speed_hz = 100000,
+    .scl_speed_hz = 400000,
 };
 
 i2c_master_dev_handle_t dev_handle;
@@ -35,6 +35,12 @@ void initalize()
 esp_err_t writeRegister(uint8_t reg, uint8_t data)
 {
     uint8_t buff[2] = {reg, data};
+    return i2c_master_transmit(dev_handle, buff, sizeof(data), 1000 / portTICK_PERIOD_MS);
+}
+
+esp_err_t writeBlockRegister(uint8_t reg, uint8_t data)
+{
+    uint8_t buff[3] = {reg, data};
     return i2c_master_transmit(dev_handle, buff, sizeof(data), 1000 / portTICK_PERIOD_MS);
 }
 
