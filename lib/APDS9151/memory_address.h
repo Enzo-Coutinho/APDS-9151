@@ -133,4 +133,16 @@ enum INTERRUPT_CONFIGURE {
     __LS_INT_SEL_RED_CHANNEL = 0x30,
 };
 
+enum INTERRUPT_PERSIST_CONFIGURE {
+    __LS_EVERY_VALUE = 0x01,
+    __LS_2_VALUE = 0x02,
+    __LS_3_VALUE = 0x02,
+    __LS_4_VALUE = 0x03,
+    __LS_35_VALUE = 0x04,
+    __LS_3_VALUE = 0x02,
+    __LS_3_VALUE = 0x02,
+    __LS_3_VALUE = 0x02,
+    __LS_3_VALUE = 0x02,
+};
+
 #endif
