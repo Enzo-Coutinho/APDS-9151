@@ -49,13 +49,12 @@ void readRegister(uint8_t reg, uint8_t len, uint8_t *data)
     ESP_ERROR_CHECK(i2c_master_transmit_receive(dev_handle, &reg, 1, data, len, 1000 / portTICK_PERIOD_MS));
 }
 
-uint8_t get_ls_data_green()
+uint32_t get_ls_data_green()
 {
-    uint8_t data[1];
-    readRegister(registers::__LS_DATA_GREEN_0_ADDR, 1, data);
-    uint8_t greenColor = data[0];
+    uint8_t data[3];
+    readRegister(registers::__LS_DATA_GREEN_0_ADDR, 3, data);
+    uint32_t greenColor = (data[0] << 12) | (data[1] << 4) | (data[2] >> 4);
     return greenColor;
-
 }
 uint8_t get_ls_data_blue()
 {

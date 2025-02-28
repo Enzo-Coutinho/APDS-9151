@@ -145,7 +145,7 @@ enum interrupt {
 void initalize();
 esp_err_t writeRegister(uint8_t reg, uint8_t data);
 esp_err_t readRegister();
-uint8_t get_ls_data_green();
+uint32_t get_ls_data_green();
 uint8_t get_ls_data_blue();
 uint8_t get_ls_data_red();
 uint8_t get_ir_result();
