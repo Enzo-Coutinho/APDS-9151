@@ -26,6 +26,7 @@ void initalize();
 
 esp_err_t write_register(uint8_t reg, uint8_t data);
 esp_err_t read_register(uint8_t reg, uint8_t len, uint8_t *data);
+uint32_t to_20_bit(uint8_t data[3]);
 
 esp_err_t device_is_conected();
 

@@ -35,10 +35,7 @@ void initalize()
 esp_err_t write_register(uint8_t reg, uint8_t data)
 {
     uint8_t buff[2] = {reg, data};
-    Serial.printf("Register: %d \n", reg);
-    Serial.printf("Data: %d \n", data);
-    ESP_ERROR_CHECK(i2c_master_transmit(dev_handle, buff, sizeof(buff), 1000 / portTICK_PERIOD_MS));
-    return ESP_OK;
+    return i2c_master_transmit(dev_handle, buff, sizeof(buff), 1000 / portTICK_PERIOD_MS);
 }
 
 esp_err_t read_register(uint8_t reg, uint8_t len, uint8_t *data)
@@ -57,7 +54,7 @@ uint32_t get_ls_data_green()
 {
     uint8_t data[3];
     ESP_ERROR_CHECK(read_register(registers::__LS_DATA_GREEN_0_ADDR, 3, data));
-    uint32_t greenColor = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    uint32_t greenColor = to_20_bit(data);
     return greenColor;
 }
 
@@ -65,7 +62,7 @@ uint32_t get_ls_data_blue()
 {
     uint8_t data[3];
     ESP_ERROR_CHECK(read_register(registers::__LS_DATA_BLUE_0_ADDR, 3, data));
-    uint32_t blueColor = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    uint32_t blueColor = to_20_bit(data);
     return blueColor;
 }
 
@@ -73,7 +70,7 @@ uint32_t get_ls_data_red()
 {
     uint8_t data[3];
     ESP_ERROR_CHECK(read_register(registers::__LS_DATA_RED_0_ADDR, 3, data));
-    uint32_t redColor = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    uint32_t redColor = to_20_bit(data);
     return redColor;
 }
 
@@ -81,6 +78,11 @@ uint32_t get_ls_data_ir()
 {
     uint8_t data[3];
     ESP_ERROR_CHECK(read_register(registers::__LS_DATA_IR_0_ADDR, 3, data));
-    uint32_t ir = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    uint32_t ir = to_20_bit(data);
     return ir;
+}
+
+uint32_t to_20_bit(uint8_t data[3])
+{
+    return (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
 }
