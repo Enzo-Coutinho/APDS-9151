@@ -15,12 +15,11 @@ extern gpio_num_t i2c_sda_port;
 extern  gpio_num_t i2c_scl_port;
 extern  uint8_t data_receive_lenght;
 extern uint8_t data_transmit_lenght;
-extern i2c_master_bus_handle_t bus_handle;
 
-extern i2c_master_bus_config_t i2c_master_config;
-extern i2c_device_config_t dev_cfg;
-
-extern i2c_master_dev_handle_t dev_handle;
+extern i2c_master_bus_handle_t i2c__master_bus_handle;
+extern i2c_master_bus_config_t i2c_master_bus_configure;
+extern i2c_device_config_t apds9151_i2c_configure;
+extern i2c_master_dev_handle_t apds9151_dev_handle;
 
 void initalize();
 

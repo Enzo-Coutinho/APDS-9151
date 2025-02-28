@@ -5,14 +5,20 @@ void setup() {
   initalize();
   delay(200);
   ESP_ERROR_CHECK(write_register(registers::__MAIN_CTRL_ADDR, data_main_ctrl::__LS_EN | data_main_ctrl::__PS_EN | data_main_ctrl::__RGB_MODE));
-  Serial.print("Main ctrl: ");
-  Serial.println(get_main_ctrl());
 }
 
 void loop() {
-  Serial.printf("Green: %d \n", get_ls_data_green());
-  Serial.printf("Red: %d \n", get_ls_data_red());
-  Serial.printf("Blue: %d \n", get_ls_data_blue());
-  Serial.printf("Ir: %d \n", get_ls_data_ir());
-  delay(200);
+  uint32_t green = getLsDataGreen();
+  uint32_t red = getLsDataRed();
+  uint32_t blue = getLsDataBlue();
+  if(green > 2000)
+  {
+    Serial.printf("Verde!!! \n");
+  } else if(blue > 2000)
+  {
+    Serial.printf("Azul!!! \n");
+  } else if(red > 2000)
+  {
+    Serial.printf("Vermelho!!!");
+  }
 }
