@@ -30,16 +30,27 @@ uint32_t to_20_bit(uint8_t data[3]);
 
 esp_err_t device_is_conected();
 
-uint8_t get_main_ctrl();
+uint8_t getMainCtrlConfigure();
+uint8_t getPsLedConfigure();
+uint8_t getPsPulsesConfigure();
+uint8_t getPsMeasRateConfigure();
+uint8_t getLsMeasRateConfigure();
+uint8_t getLsGainConfigure();
+uint8_t getPartID();
+uint8_t getMainStatus();
 
-uint32_t get_ls_data_green();
-uint32_t get_ls_data_blue();
-uint32_t get_ls_data_red();
+uint8_t getInterruptConfigure();
+uint8_t getPersistInterruptConfigure();
+uint16_t getPsThresholdUpConfigure();
+uint16_t getPsThresholdLowConfigure();
+uint16_t getLsThresholdUpConfigure();
+uint16_t getLsThresholdLowConfigure();
+uint16_t getLsThresholdVarianceConfigure();
+uint16_t getPsCAN();
 
-uint32_t get_ls_data_ir();
+uint32_t getLsDataGreen();
+uint32_t getLsDataBlue();
+uint32_t getLsDataRed();
+uint32_t getLsDataIR();
+uint8_t getPsData();
 
-uint8_t get_ps_data();
-
-uint8_t get_main_status();
-uint8_t get_configure();
-uint8_t get_part_id();
