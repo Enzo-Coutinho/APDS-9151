@@ -9,8 +9,6 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
-#include "esp32-hal-log.h"
-#include "vector"
 
 extern i2c_port_num_t i2c_port;
 extern gpio_num_t i2c_sda_port;
@@ -25,19 +23,22 @@ extern i2c_device_config_t dev_cfg;
 extern i2c_master_dev_handle_t dev_handle;
 
 void initalize();
+
 esp_err_t write_register(uint8_t reg, uint8_t data);
 esp_err_t read_register(uint8_t reg, uint8_t len, uint8_t *data);
 
+esp_err_t device_is_conected();
+
 uint8_t get_main_ctrl();
 
-uint8_t get_ls_data_green();
-uint8_t get_ls_data_blue();
-uint8_t get_ls_data_red();
-uint8_t get_ir_result();
-uint8_t get_ir_result();
+uint32_t get_ls_data_green();
+uint32_t get_ls_data_blue();
+uint32_t get_ls_data_red();
+
+uint32_t get_ls_data_ir();
+
+uint8_t get_ps_data();
+
 uint8_t get_main_status();
 uint8_t get_configure();
 uint8_t get_part_id();
-uint8_t get_ps_data();
-esp_err_t device_is_conected();
-void get_rgb();

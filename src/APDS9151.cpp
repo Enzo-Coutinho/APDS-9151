@@ -53,9 +53,34 @@ uint8_t get_main_ctrl()
     return main_ctrl;
 }
 
-uint8_t get_ls_data_green()
+uint32_t get_ls_data_green()
 {
     uint8_t data[3];
     ESP_ERROR_CHECK(read_register(registers::__LS_DATA_GREEN_0_ADDR, 3, data));
-    return data[0];
+    uint32_t greenColor = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    return greenColor;
+}
+
+uint32_t get_ls_data_blue()
+{
+    uint8_t data[3];
+    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_BLUE_0_ADDR, 3, data));
+    uint32_t blueColor = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    return blueColor;
+}
+
+uint32_t get_ls_data_red()
+{
+    uint8_t data[3];
+    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_RED_0_ADDR, 3, data));
+    uint32_t redColor = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    return redColor;
+}
+
+uint32_t get_ls_data_ir()
+{
+    uint8_t data[3];
+    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_IR_0_ADDR, 3, data));
+    uint32_t ir = (((uint32_t)data[2] << 16) | ((uint16_t)(data[1] << 8)) | (data[0]));
+    return ir;
 }
