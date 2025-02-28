@@ -11,14 +11,17 @@ void loop() {
   uint32_t green = getLsDataGreen();
   uint32_t red = getLsDataRed();
   uint32_t blue = getLsDataBlue();
-  if(green > 2000)
+  if(green > 2500)
   {
     Serial.printf("Verde!!! \n");
-  } else if(blue > 2000)
+  } else if(blue > 2500)
   {
     Serial.printf("Azul!!! \n");
-  } else if(red > 2000)
+  } else if(red > 2500)
   {
-    Serial.printf("Vermelho!!!");
+    Serial.printf("Vermelho!!! \n");
+  } else {
+    Serial.printf("Nenhuma!!! \n");
   }
+  delay(200);
 }

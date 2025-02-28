@@ -45,77 +45,77 @@ esp_err_t read_register(uint8_t reg, uint8_t len, uint8_t *data)
 uint8_t getMainCtrlConfigure()
 {
     uint8_t main_ctrl;
-    ESP_ERROR_CHECK(read_register(registers::__MAIN_CTRL_ADDR, 1, &main_ctrl));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__MAIN_CTRL_ADDR, 1, &main_ctrl));
     return main_ctrl;
 }
 
 uint8_t getPsLedConfigure()
 {
     uint8_t psLed;
-    ESP_ERROR_CHECK(read_register(registers::__PS_LED_ADDR, 1, &psLed));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__PS_LED_ADDR, 1, &psLed));
     return psLed;
 }
 
 uint8_t getPsPulsesConfigure()
 {
     uint8_t psPulses;
-    ESP_ERROR_CHECK(read_register(registers::__PS_PULSES_ADDR, 1, &psPulses));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__PS_PULSES_ADDR, 1, &psPulses));
     return psPulses;
 }
 
 uint8_t getPsMeasRateConfigure()
 {
     uint8_t psMeasRate;
-    ESP_ERROR_CHECK(read_register(registers::__PS_MEAS_RATE_ADDR, 1, &psMeasRate));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__PS_MEAS_RATE_ADDR, 1, &psMeasRate));
     return psMeasRate;
 }
 
 uint8_t getLsMeasRateConfigure()
 {
     uint8_t psMeasRate;
-    ESP_ERROR_CHECK(read_register(registers::__LS_MEAS_RATE_ADDR, 1, &psMeasRate));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__LS_MEAS_RATE_ADDR, 1, &psMeasRate));
     return psMeasRate;
 }
 
 uint8_t getLsGainConfigure()
 {
     uint8_t psMeasRate;
-    ESP_ERROR_CHECK(read_register(registers::__LS_GAIN_ADDR, 1, &psMeasRate));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__LS_GAIN_ADDR, 1, &psMeasRate));
     return psMeasRate;
 }
 
 uint8_t getPartID()
 {
     uint8_t partId;
-    ESP_ERROR_CHECK(read_register(registers::__PART_ID_ADDR, 1, &partId));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__PART_ID_ADDR, 1, &partId));
     return partId;
 }
 
 uint8_t getMainStatus()
 {
     uint8_t mainStatus;
-    ESP_ERROR_CHECK(read_register(registers::__MAIN_STATUS_ADDR, 1, &mainStatus));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__MAIN_STATUS_ADDR, 1, &mainStatus));
     return mainStatus;
 }
 
 uint8_t getInterruptConfigure()
 {
     uint8_t intCfg;
-    ESP_ERROR_CHECK(read_register(registers::__INT_CFG_ADDR, 1, &intCfg));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__INT_CFG_ADDR, 1, &intCfg));
     return intCfg;
 }
 
 uint8_t getPersistInterruptConfigure()
 {
     uint8_t intPst;
-    ESP_ERROR_CHECK(read_register(registers::__INT_PST_ADDR, 1, &intPst));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__INT_PST_ADDR, 1, &intPst));
     return intPst;
 }
 
 uint32_t getLsDataGreen()
 {
     uint8_t data[3];
-    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_GREEN_0_ADDR, 3, data));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__LS_DATA_GREEN_0_ADDR, 3, data));
     uint32_t greenColor = to_20_bit(data);
     return greenColor;
 }
@@ -123,7 +123,7 @@ uint32_t getLsDataGreen()
 uint32_t getLsDataBlue()
 {
     uint8_t data[3];
-    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_BLUE_0_ADDR, 3, data));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__LS_DATA_BLUE_0_ADDR, 3, data));
     uint32_t blueColor = to_20_bit(data);
     return blueColor;
 }
@@ -131,7 +131,7 @@ uint32_t getLsDataBlue()
 uint32_t getLsDataRed()
 {
     uint8_t data[3];
-    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_RED_0_ADDR, 3, data));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__LS_DATA_RED_0_ADDR, 3, data));
     uint32_t redColor = to_20_bit(data);
     return redColor;
 }
@@ -139,7 +139,7 @@ uint32_t getLsDataRed()
 uint32_t getLsDataIR()
 {
     uint8_t data[3];
-    ESP_ERROR_CHECK(read_register(registers::__LS_DATA_IR_0_ADDR, 3, data));
+    ESP_ERROR_CHECK(read_register(REGISTERS::__LS_DATA_IR_0_ADDR, 3, data));
     uint32_t ir = to_20_bit(data);
     return ir;
 }

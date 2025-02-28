@@ -1,7 +1,7 @@
 #ifndef memory_address
 #define memory_address
 
-enum registers {
+enum REGISTERS {
     __MAIN_CTRL_ADDR = 0x00,
     __PS_LED_ADDR = 0x01,
     __PS_PULSES_ADDR = 0x02,
@@ -41,7 +41,7 @@ enum registers {
     __LS_THRES_VAR_ADDR = 0x27,
 };
 
-enum data_main_ctrl {
+enum DATA_MAIN_CTRL {
     __SAI_PS = 0x40,
     __SAI_LS = 0x20,
     __SW_RESET = 0x10,
@@ -50,12 +50,15 @@ enum data_main_ctrl {
     __PS_EN = 0x01,
 };
 
-enum ps_freq {
+enum PS_FREQUENCY {
     __FREQ_60K = 0x30,
     __FREQ_70K = 0x40,
     __FREQ_80K = 0x50,
     __FREQ_90K = 0x60,
     __FREQ_100K = 0x70,
+};
+
+enum PS_CURRENT {
     __PULSE_CURRENT_2_5MA = 0x00,
     __PULSE_CURRENT_5MA = 0x01,
     __PULSE_CURRENT_10MA = 0x02,
@@ -66,11 +69,15 @@ enum ps_freq {
     __PULSE_CURRENT_125MA = 0x07,
 };
 
-enum resolution_ps {
+enum PS_RESOLUTION {
     __PS_RESOLUTION_8bit = 0x00,
     __PS_RESOLUTION_9bit = 0x08,
     __PS_RESOLUTION_10bit = 0x10,
     __PS_RESOLUTION_11bit = 0x18,
+
+};
+
+enum PS_MEASUREMENT_RATE {
     __PS_MEASUREMENT_RATE_6_25ms = 0x01,    
     __PS_MEASUREMENT_RATE_12_5ms = 0x02,
     __PS_MEASUREMENT_RATE_25ms = 0x03,
@@ -80,20 +87,23 @@ enum resolution_ps {
     __PS_MEASUREMENT_RATE_400ms = 0x07,
 };
 
-enum ps_pulses {
+enum PS_PULSES {
     __PS_PULSES_0 = 0b00000000,
     __PS_PULSES_8 = 0b00001000,
     __PS_PULSES_32 = 0b00100000,
     __PS_PULSES_255 = 0b11111111,
 };
 
-enum resolution_ls {
+enum LS_RESOLUTION {
     __LS_RESOLUTION_20bit = 0x00,
     __LS_RESOLUTION_19bit = 0x10,
     __LS_RESOLUTION_18bit = 0x20,  // default
     __LS_RESOLUTION_17bit = 0x30,
     __LS_RESOLUTION_16bit = 0x40,
     __LS_RESOLUTION_13bit = 0x50,
+};
+
+enum LS_MEASUREMENT_RATE {
     __LS_MEASUREMENT_RATE_25ms = 0x00,
     __LS_MEASUREMENT_RATE_50ms = 0x01,
     __LS_MEASUREMENT_RATE_100ms = 0x02, // default
@@ -104,7 +114,7 @@ enum resolution_ls {
     __LS_MEASUREMENT_RATE_2000ms_1 = 0x07,
 };
 
-enum gain {
+enum GAIN {
     __GAIN_1 = 0x00,
     __GAIN_3 = 0x01, // default
     __GAIN_6 = 0x02,
@@ -112,7 +122,7 @@ enum gain {
     __GAIN_18 = 0x04,
 };
 
-enum interrupt {
+enum INTERRUPT_CONFIGURE {
     __PS_INT_EN = 0x01,
     __PS_LOGIC_MODE = 0x02,
     __LS_INT_EN = 0x04,

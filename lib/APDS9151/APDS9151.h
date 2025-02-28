@@ -53,3 +53,17 @@ uint32_t getLsDataRed();
 uint32_t getLsDataIR();
 uint8_t getPsData();
 
+void setMainCtrl(bool SAI_PS, bool SAI_LS, bool SW_RESET, bool RGB_MODE, bool LS_EN, bool PS_EN);
+void setPsLedConfigure(PS_FREQUENCY ledPulseFreq, PS_CURRENT ledCurrent);
+void setPsPulsesConfigure(PS_PULSES numberOfLedPulses);
+void setPsMeasRateConfigure(PS_RESOLUTION psResolution, PS_MEASUREMENT_RATE psMeasurementRate);
+void setLsMeasRateConfigure(LS_RESOLUTION lsResolution, LS_MEASUREMENT_RATE lsMeasurementRate);
+void setLsGainConfigure(GAIN gain);
+void setInterruptionConfigure();
+void setPersistInterruptionConfigure();
+void setPsThresholdUpValue();
+void setPsThresholdLowValue();
+void setPsCANValue();
+void setLsThresholdLowValue();
+void setLsThresholdUpValue();
+void setLsThresholdVarianceValue();
