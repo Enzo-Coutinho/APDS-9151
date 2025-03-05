@@ -1,6 +1,12 @@
 #ifndef memory_address
 #define memory_address
 
+
+enum DEVICE
+{
+    __DEVICE_ADDR = 0x52
+};
+
 enum REGISTERS {
     __MAIN_CTRL_ADDR = 0x00,
     __PS_LED_ADDR = 0x01,
@@ -108,8 +114,8 @@ enum LS_MEASUREMENT_RATE {
     __LS_MEASUREMENT_RATE_50ms = 0x01,
     __LS_MEASUREMENT_RATE_100ms = 0x02, // default
     __LS_MEASUREMENT_RATE_200ms = 0x03,
-    __LS_MEASUREMENT_RATE_500s = 0x04,
-    __LS_MEASUREMENT_RATE_1000s = 0x05,
+    __LS_MEASUREMENT_RATE_500ms = 0x04,
+    __LS_MEASUREMENT_RATE_1000ms = 0x05,
     __LS_MEASUREMENT_RATE_2000ms_0 = 0x06,
     __LS_MEASUREMENT_RATE_2000ms_1 = 0x07,
 };
@@ -139,10 +145,12 @@ enum INTERRUPT_PERSIST_CONFIGURE {
     __LS_3_VALUE = 0x02,
     __LS_4_VALUE = 0x03,
     __LS_35_VALUE = 0x04,
-    __LS_3_VALUE = 0x02,
-    __LS_3_VALUE = 0x02,
-    __LS_3_VALUE = 0x02,
-    __LS_3_VALUE = 0x02,
+};
+
+enum BUFFER_SIZES {
+    __1_BYTE = 0x01,
+    __2_BYTE = 0x02,
+    __3_BYTE = 0x03,
 };
 
 #endif
