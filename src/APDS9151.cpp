@@ -46,7 +46,7 @@ esp_err_t read_register(uint8_t reg, uint8_t len, uint8_t *data)
 
 esp_err_t device_is_conected()
 {
-    return i2c_master_probe(i2c__master_bus_handle, DEVICE::__DEVICE_ADDR, 1000 / portTICK_PERIOD_MS);
+    return i2c_master_probe(i2c__master_bus_handle, DEVICE::__DEVICE_ADDR, timeout);
 }
 
 uint8_t getMainCtrlConfigure()
