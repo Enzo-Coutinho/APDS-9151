@@ -1,46 +1,9 @@
 
-This directory is intended for project specific (private) libraries.
-PlatformIO will compile them to static libraries and link into the executable file.
+## APDS-9151
 
-The source code of each library should be placed in a separate directory
-("lib/your_library_name/[Code]").
+This repository contains the source code necessary to use the APDS-9151 sensor from Broadcom.
 
-For example, see the structure of the following example libraries `Foo` and `Bar`:
+An example application of this sensor can be seen in the Color Sensor V3 device from REV Robotics.
 
-|--lib
-|  |
-|  |--Bar
-|  |  |--docs
-|  |  |--examples
-|  |  |--src
-|  |     |- Bar.c
-|  |     |- Bar.h
-|  |  |- library.json (optional. for custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
-|  |
-|  |--Foo
-|  |  |- Foo.c
-|  |  |- Foo.h
-|  |
-|  |- README --> THIS FILE
-|
-|- platformio.ini
-|--src
-   |- main.c
+- [https://www.revrobotics.com/rev-31-1557/](https://www.revrobotics.com/rev-31-1557/)
 
-Example contents of `src/main.c` using Foo and Bar:
-```
-#include <Foo.h>
-#include <Bar.h>
-
-int main (void)
-{
-  ...
-}
-
-```
-
-The PlatformIO Library Dependency Finder will find automatically dependent
-libraries by scanning project source files.
-
-More information about PlatformIO Library Dependency Finder
-- https://docs.platformio.org/page/librarymanager/ldf.html
