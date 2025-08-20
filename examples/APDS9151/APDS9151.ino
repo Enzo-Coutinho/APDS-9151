@@ -1,5 +1,6 @@
 #include <Arduino.h>
-#include "APDS9151.h"
+#include "color_sensor/ColorSensor.hpp"
+
 void setup() {
   Serial.begin(115200);
   initialize();
